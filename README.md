@@ -10,21 +10,20 @@ Il progetto si occupa della generazione, l'evoluzione temporale e l'analisi di F
 ## Modalità d'uso
 Per poter utilizzare il programma occorre scaricare tutti i file .py presenti nella repository e interfacciarsi solo con main.py.
 Il programma deve essere lanciato da terminale utilizzando i flag desiderati. Di seguito i comandi utilizzabili dove -o è la forma short del comando mentre --option la versione estesa.
-* -g --genpacket genera 4 pacchetti d'onda
-* -n --dist_tipo permette di selezionare la distribuzione di probabilità dalla quale vengono generate frequenze, è possibile scegliere tra 
+* -g oppure --genpacket genera 4 pacchetti d'onda
+* -n oppure --dist_tipo permette di selezionare la distribuzione di probabilità dalla quale vengono generate frequenze.(Se non specificato, di default viene impostato a 1)
     * 1: $k/\nu$,
     * 2: $k/\nu^2$ 
     * 3: Gaussiana
 Se non specificato, di default viene impostato a 1
-* -d --rel_disp permette di selezionare la relazione di dispersione del pacchetto. 
+* -d oppure --rel_disp permette di selezionare la relazione di dispersione del pacchetto.(Se non specificato, di default viene impostato a 1)
     * 1: $\omega = \sqrt{ck}$
     * 2: $\omega = \sqrt{ck^2}$ 
     * 3: $\omega = \sqrt{ck^3}$
     * 4 per $\omega = \sqrt{b + ck^2}$ 
- Se non specificato, di default viene impostato a 1
 * --t0 permette di visualizzare i pacchetti a t=0
-* -e --evolve, permette di visualizzare i pacchetti in 4 istanti temporali equidistanti.
-* -f --fourier permette di visualizzare lo spettro di potenza dei pacchetti a x=0.
+* -e oppure --evolve, permette di visualizzare i pacchetti in 4 istanti temporali equidistanti.
+* -f oppure --fourier permette di visualizzare lo spettro di potenza dei pacchetti a x=0.
 Un esempio di corretto lancio del programma è il seguente:
 
 
