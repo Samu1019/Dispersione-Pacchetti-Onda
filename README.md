@@ -15,12 +15,11 @@ Il programma deve essere lanciato da terminale utilizzando i flag desiderati. Di
     * 1: $k/\nu$,
     * 2: $k/\nu^2$ 
     * 3: Gaussiana
-Se non specificato, di default viene impostato a 1
 * -d oppure --rel_disp permette di selezionare la relazione di dispersione del pacchetto.(Se non specificato, di default viene impostato a 1)
     * 1: $\omega = \sqrt{ck}$
     * 2: $\omega = \sqrt{ck^2}$ 
     * 3: $\omega = \sqrt{ck^3}$
-    * 4 per $\omega = \sqrt{b + ck^2}$ 
+    * 4: $\omega = \sqrt{b + ck^2}$ 
 * --t0 permette di visualizzare i pacchetti a t=0
 * -e oppure --evolve, permette di visualizzare i pacchetti in 4 istanti temporali equidistanti.
 * -f oppure --fourier permette di visualizzare lo spettro di potenza dei pacchetti a x=0.
