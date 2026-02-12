@@ -22,7 +22,7 @@ def parse_arguments():
 
 if __name__ == "__main__":
     args = parse_arguments()
-    labels_dist = {1: r"$\frac{1}{\nu}$", 2: r"$\frac{1}{\nu^2}$", 3: "Gaussiana"}
+    labels_dist = {1: r"$\frac{k}{\nu}$", 2: r"$\frac{k}{\nu^2}$", 3: "gaussiana"}
     labels_rel = {1: r"${\omega} = \sqrt{ck}$", 2: r"${\omega} = \sqrt{ck^2}$", 3: r"${\omega} = \sqrt{ck^3}$", 4: r"${\omega} = \sqrt{b + ck^2}$"}
     packets=[]
     distr_freq= args.dist_tipo
