@@ -4,12 +4,13 @@ Il progetto si occupa della generazione, l'evoluzione temporale e l'analisi di F
 
 ## Composizione del Progetto
 * **`main.py`**: Gestisce l'interfaccia da terminale e la visualizzazione dei grafici.
-* **`waves.py`**: Contiene la struttura computazionale della generazione ed evoluzione dei pacchetti d'onda. Contiene la classe `WavePacket`, che genera i pacchetti d'onda, le le funzioni di evoluzione e altre funzioni di calcolo.
+* **`waves.py`**: Contiene la struttura computazionale della generazione ed evoluzione dei pacchetti d'onda.In particolare sono presenti la classe `WavePacket`, che genera i pacchetti d'onda, le le funzioni di evoluzione e altre funzioni di calcolo.
 * **`parameters.py`**: Contiene le costanti di configurazione ($a, b, c$) che definiscono scala di ampiezze e relazioni di dispersione.
 
 ## Modalità d'uso
 Per poter utilizzare il programma occorre scaricare tutti i file .py presenti nella repository e interfacciarsi solo con main.py.
 Il programma deve essere lanciato da terminale utilizzando i flag desiderati. Di seguito i comandi utilizzabili dove -o è la forma short del comando mentre --option la versione estesa.
+* -h oppure --help mostra i comandi disponibili con relativa spiegazione.
 * -g oppure --genpacket genera 4 pacchetti d'onda
 * -n oppure --dist_tipo permette di selezionare la distribuzione di probabilità dalla quale vengono generate frequenze.(Se non specificato, di default viene impostato a 1)
     * 1: $k/\nu$,

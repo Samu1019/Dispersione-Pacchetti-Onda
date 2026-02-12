@@ -20,7 +20,7 @@ def k_v_onda(w,rel_disp,b,c):
         rad = (np.power(w, 2) - b) / c
         return np.sqrt(rad.clip(min=0))
     else:
-        print("ERRORE: relazione di dispersione non valida.")
+        print("ERRORE: relazione di dispersione non valida, scegliere tra 1,2,3,4")
         sys.exit(1)
 
 class WavePacket:
@@ -36,14 +36,17 @@ class WavePacket:
         """
         calcolo della costante di normalizzazione k in base alla distribuzione scelta
         """
-        if self.distr_freq == 1:
+        if (self.distr_freq == 1):
             return 1/np.log(self.nu_max / self.nu_min)
-        elif self.distr_freq == 2:
+        elif (self.distr_freq == 2):
             return 1/(1/self.nu_min - 1/self.nu_max)
+        elif (self.distr_freq >=4):
+            print("ERRORE: Distribuzione di probabilità delle frequenze non valida, scegliere tra 1,2,3")
+            sys.exit(1)
     def _gen_nu(self):
         y = np.random.random(self.N)
         """
-        generazione frequenze attraverso il metodo dell'inversa della cumulativa
+        generazione frequenze attraverso il metodo dell'inversa della cumulativa e secondo la distribuzione gaussiana
         y: numero random [0, 1]
         """
         if self.distr_freq == 1:
