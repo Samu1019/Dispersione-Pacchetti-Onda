@@ -11,7 +11,7 @@ def k_v_onda(w,rel_disp,b,c):
     Numero d'onda calcolato a seconda della relazione di dispersione
     """
     if (rel_disp == 1):
-        return np.power(w, 2)/b
+        return np.power(w, 2)/c
     elif (rel_disp == 2):
         return w/np.sqrt(c)
     elif (rel_disp == 3):

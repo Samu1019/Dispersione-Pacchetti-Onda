@@ -13,7 +13,7 @@ def parse_arguments():
                                     usage="python3 main.py  --option")
     parser.add_argument("-g","--genpacket",   action="store_true",    help="Genera pacchetti d'onda, con un numero crescente di componenti, a partire da distribuzioni di probabilità date per le frequeze e le relative ampiezze")
     parser.add_argument("-n","--dist_tipo", type=int, default=1, help="Tipo di distribuzione di probabilità per le frequenze: 1 per k/nu, 2 per k/nu^2, 3 per una distribuzione gaussiana")
-    parser.add_argument("-d","--rel_disp", type=int, default=1, help="Relazione di dispersione da utilizzare: 1 per w^2 = b*k, 2 per w = sqrt(c*k), 3 per w^2 = c*k^3, 4 per w^2 = b + c*k^2")
+    parser.add_argument("-d","--rel_disp", type=int, default=1, help="Relazione di dispersione da utilizzare: 1 per w = sqrt(c*k), 2 per w = sqrt(c*(k^2)), 3 per w = sqrt(c*k^3), 4 per w = sqrt(b + c*k^2)")
     parser.add_argument("--t0", action="store_true", help="Mostra i pacchetti generati al tempo t=0")
     parser.add_argument("-e","--evolve", action="store_true", help="Mostra l'evoluzione dei pacchetti generati al variare del tempo")
     parser.add_argument("-f","--fourier", action="store_true", help="Studia lo spettro di potenza di Fourier dei pacchetti generati")
