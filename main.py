@@ -37,17 +37,23 @@ if __name__ == "__main__":
             print("ERRORE: Non è stato generato alcun pacchetto d'onda con l'opzione --genpacket")
             sys.exit(1)
         t_istanti=np.linspace(0, 200, 4)
-        x_ax = np.linspace(-20, 1000, 20000)
+        x_ax = np.linspace(-100, 2000, 20000)
         for p in packets:
-            fig, axs = plt.subplots(2, 2, figsize=(10, 8), sharex=True, sharey=True)
+            fig, axs = plt.subplots(2, 2, figsize=(10, 8), sharex=False, sharey=False)
             fig.suptitle(fr"Pacchetto con N={p.N},Relazione di Dispersione {labels_rel.get(rel_disp,'')}, Distribuzione di frequenza {labels_dist.get(distr_freq, '')}", fontsize=12)
             for i, t in enumerate(t_istanti):
                 riga = i // 2
                 colonna = i % 2
                 evo_packet = evolve_wp(p, x_ax, t, rel_disp, b, c)
                 ax = axs[riga, colonna]
-                ax.plot(x_ax, evo_packet, lw=0.6, color='darkblue')
-                ax.set_title(f"Istante t = {t:.2f} s", fontsize=10)
+                ax.plot(x_ax, evo_packet, lw=0.6, color='darkblue', alpha=0.9)
+                p_max_x = np.argmax(np.abs(evo_packet))
+                x_picco = x_ax[p_max_x]
+                ax.set_xlim(x_picco - (40 + t/5), x_picco + (40 + t/5))
+                amp_max = np.max(np.abs(evo_packet))
+                ax.set_ylim(-amp_max * 1.2, amp_max * 1.2)
+                ax.text(0.05, 0.9, f"t = {t:.1f} s", transform=ax.transAxes, 
+                fontsize=10, fontweight='bold', bbox=dict(facecolor='white', alpha=0.7))
                 ax.grid(True, linestyle=':', alpha=0.6)
                 if riga == 1:
                     ax.set_xlabel("Spazio[m]")
@@ -60,15 +66,20 @@ if __name__ == "__main__":
         if(not packets):
             print("ERRORE: Non è stato generato alcun pacchetto d'onda con l'opzione --genpacket")
             sys.exit(1)
-        x_ax = np.linspace(-20, 1000, 20000)
-        fig, axs =plt.subplots(2,2, figsize=(10,8), sharex=True, sharey=True)
+        x_ax = np.linspace(-100, 2000, 20000)
+        fig, axs =plt.subplots(2,2, figsize=(10,8), sharex=False, sharey=False)
         for i, p in enumerate(packets):
             phi_0=evolve_wp(p,x_ax,0,rel_disp,b,c)
             riga=i//2
             colonna=i%2
             ax=axs[riga,colonna]
-            ax.plot(x_ax, phi_0, lw=0.6, color="darkblue")
+            ax.plot(x_ax, phi_0, lw=0.6, color="green")
             ax.set_title(f"Pacchetto con N={p.N}", fontsize=10)
+            p_max_x = np.argmax(np.abs(phi_0))
+            x_picco = x_ax[p_max_x]
+            ax.set_xlim(x_picco - 40, x_picco +40)
+            amp_max = np.max(np.abs(phi_0))
+            ax.set_ylim(-amp_max * 1.2, amp_max * 1.2)
             ax.grid(True, linestyle=":", lw= 0.6,alpha=0.6)
             if riga == 1:
                 ax.set_xlabel("Spazio[m]")
